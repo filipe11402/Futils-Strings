@@ -39,6 +39,18 @@ namespace Futils.Strings.Tests.Extensions
             //Act
             var result = actual.ToPascalCase();
 
+            //Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("TestPascalCase", "test/pascal/case")]
+        public void ToPascalCase_ReceivesStringWithDivideSymbol_ReturnPascalCaseString(string expected, string actual) 
+        {
+            //Act
+            var result = actual.ToPascalCase();
+
+            //Assert
             Assert.Equal(expected, result);
         }
     }

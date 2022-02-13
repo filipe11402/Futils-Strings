@@ -8,7 +8,7 @@ namespace Futils.Strings.src.Extensions
     {
         private static readonly char[] charDividers = new char[] { '-', '_', '/' };
 
-        public static string ToPascalCase(this string value) 
+        public static string ToPascalCase(this string value)
         {
             if (string.IsNullOrWhiteSpace(value)) 
             {
