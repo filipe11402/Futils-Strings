@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Futils.Strings.src.csproj" />
+    <ProjectReference Include="..\Futils.Strings.src\Futils.Strings.src.csproj" />
   </ItemGroup>
 
 </Project>
