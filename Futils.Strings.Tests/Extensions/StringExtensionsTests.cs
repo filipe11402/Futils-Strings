@@ -13,7 +13,7 @@ namespace Futils.Strings.Tests.Extensions
         [Theory]
         [InlineData("StringToPascalCase", "string_to_pascal_case")]
         [InlineData("AnotherTestToPascalCase", "Another_test_to_Pascal_case")]
-        public void ToPascalCase_ReturnsPascalCaseString(string expected, string actual)
+        public void ToPascalCase_ReceivesStringWithUnderscore_ReturnsPascalCaseString(string expected, string actual)
         {
             //Act
             var result = actual.ToPascalCase();
@@ -26,9 +26,20 @@ namespace Futils.Strings.Tests.Extensions
         [InlineData("")]
         [InlineData(null)]
         [InlineData(" ")]
-        public void ToPascalCase_ThrowsArgumentNullException(string actual) 
+        public void ToPascalCase_ReceivesNullOrEmptyString_ThrowsArgumentNullException(string actual) 
         {
             Assert.Throws<ArgumentNullException>(() => actual.ToPascalCase());
+        }
+
+        [Theory]
+        [InlineData("ToPascalCaseString", "to-pascal-case-string")]
+        [InlineData("AnotherTestToPascalCaseString", "another-test-to-pascal-case-string")]
+        public void ToPascalCase_ReceivesStringWithDivider_ReturnsPascalCaseString(string expected, string actual)
+        {
+            //Act
+            var result = actual.ToPascalCase();
+
+            Assert.Equal(expected, result);
         }
     }
 }
