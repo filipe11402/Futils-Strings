@@ -1,9 +1,5 @@
 ﻿using Futils.Strings.src.Extensions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Futils.Strings.Tests.Extensions
@@ -49,6 +45,17 @@ namespace Futils.Strings.Tests.Extensions
         {
             //Act
             var result = actual.ToPascalCase();
+
+            //Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("TestString", "testString")]
+        public void CapitalizeFirstLetter_ReceivesString_ReturnsStringWithFirstLetterCapitalized(string expected, string actual) 
+        {
+            //Act
+            var result = actual.CapitalizeFirstLetter();
 
             //Assert
             Assert.Equal(expected, result);

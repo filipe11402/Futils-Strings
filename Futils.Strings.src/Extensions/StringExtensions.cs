@@ -8,23 +8,33 @@ namespace Futils.Strings.src.Extensions
     {
         private static readonly char[] charDividers = new char[] { '-', '_', '/' };
 
-        public static string ToPascalCase(this string value)
+        public static string ToPascalCase(this string input)
         {
-            if (string.IsNullOrWhiteSpace(value)) 
+            if (string.IsNullOrWhiteSpace(input)) 
             {
                 throw new ArgumentNullException(nameof(StringExtensionsEnum.ValueCannotBeNull));
             }
 
-            value = value.ToLowerInvariant();
+            input = input.ToLowerInvariant();
 
-            if (charDividers.Any(x => value.Contains(x))) 
+            if (charDividers.Any(x => input.Contains(x))) 
             {
-                var splittedValue = value.Split(charDividers.FirstOrDefault(x => value.Contains(x)));
+                var splittedValue = input.Split(charDividers.FirstOrDefault(x => input.Contains(x)));
 
-                return value = String.Concat(splittedValue.Select(x => char.ToUpper(x[0]) + x.Substring(1)));
+                return input = string.Concat(splittedValue.Select(x => char.ToUpper(x[0]) + x.Substring(1)));
             }
 
-            return value;
+            return input;
+        }
+
+        public static string CapitalizeFirstLetter(this string input)
+        {
+            if (string.IsNullOrWhiteSpace(input)) 
+            {
+                throw new ArgumentNullException(nameof(StringExtensionsEnum.ValueCannotBeNull));
+            }
+
+            return string.Concat(char.ToUpper(input[0]), input.Substring(1));
         }
     }
 }
