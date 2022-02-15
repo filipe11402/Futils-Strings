@@ -25,4 +25,4 @@ jobs:
       run: dotnet pack --configuration Release
       
     - name: Publish
-      run: dotnet nuget push "../Futils.Strings.src/bin/release/FUtils.Strings.*.nupkg" --api-key ${{ secrets.NUGET_API_KEY }} --source ${{ secrets.NUGET_SERVER }}
+      run: dotnet nuget push ./Futils.Strings.src/bin/release/FUtils.Strings.*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source ${{ secrets.NUGET_SERVER }}
