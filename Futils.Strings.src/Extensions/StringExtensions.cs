@@ -39,7 +39,7 @@ namespace Futils.Strings.src.Extensions
 
         public static string RemoveWhiteSpaces(this string input)
         {
-            if (string.IsNullOrEmpty(input)) 
+            if (string.IsNullOrWhiteSpace(input)) 
             {
                 throw new ArgumentNullException(nameof(StringExtensionsEnum.ValueCannotBeNull));
             }

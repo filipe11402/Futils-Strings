@@ -24,6 +24,7 @@ namespace Futils.Strings.Tests.Extensions
         [InlineData(" ")]
         public void ToPascalCase_ReceivesNullOrEmptyString_ThrowsArgumentNullException(string actual) 
         {
+            //Act
             Assert.Throws<ArgumentNullException>(() => actual.ToPascalCase());
         }
 
@@ -59,6 +60,43 @@ namespace Futils.Strings.Tests.Extensions
 
             //Assert
             Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("iwantnowhitespace", "i want no whitespace")]
+        [InlineData("iwantnowhitespace", "i wantno whitespace")]
+        [InlineData("givewhitespace", "give whitespace")]
+        public void RemoveWhiteSpaces_ReceivesStringWithWhiteSpace_ReturnsNoWhiteSpaceString(string expected, string actual) 
+        {
+            //Act
+            var result = actual.RemoveWhiteSpaces();
+
+            //Arrange
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public void RemoveWhiteSpaces_ReceivesNullOrEmptyString_ReturnsException(string input) 
+        {
+            //Act
+            Assert.Throws<ArgumentNullException>(() => input.RemoveWhiteSpaces());
+        }
+
+        [Theory]
+        [InlineData("teste")]
+        [InlineData("iwillBeOk")]
+        [InlineData("ThiswillBe-Fi!.,.,")]
+        [InlineData("%&/%&/%&/-Fi!.,.,")]
+        public void RemoveWhiteSpaces_ReceivesStringWhithoutSpaces_ReturnsSameString(string input) 
+        {
+            //Act
+            var result = input.RemoveWhiteSpaces();
+
+            //Assert
+            Assert.Equal(input, result);
         }
     }
 }
