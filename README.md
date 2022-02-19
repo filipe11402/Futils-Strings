@@ -8,10 +8,14 @@ Format your strings using these Extension Methods
 
 
 #### .NET CLI
-``` dotnet add package FUtils.Strings ```
+```
+dotnet add package FUtils.Strings 
+```
 
 #### Nuget
-``` Install-Package FUtils.Strings ```
+```
+Install-Package FUtils.Strings
+```
 
 
 #### String Extensions
