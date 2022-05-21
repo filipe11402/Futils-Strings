@@ -36,5 +36,20 @@ namespace Futils.Strings.src.Extensions
 
             return string.Concat(char.ToUpper(input[0]), input.Substring(1));
         }
+
+        public static string RemoveWhiteSpaces(this string input)
+        {
+            if (string.IsNullOrWhiteSpace(input)) 
+            {
+                throw new ArgumentNullException(nameof(StringExtensionsEnum.ValueCannotBeNull));
+            }
+
+            if (input.Contains(" "))
+            {
+                return String.Join("", input.Split(" "));
+            }
+
+            return input;
+        }
     }
 }
